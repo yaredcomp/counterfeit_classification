@@ -1,2 +1,2 @@
-opencv-python-headless
-numpy
+opencv-python-headless == 4.8.1.78
+tensorflow == 2.14.0

@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-from PIL import Image
+import cv2
 import tensorflow as tf
 
 # Define the available models
@@ -16,8 +16,7 @@ classes = ['genuine_200_etb', 'counterfeit_200_etb', 'genuine_100_etb', 'counter
 
 # Helper function to preprocess the image
 def preprocess_image(image):
-    image = image.resize((224, 224))  # Resize the image with Pillow
-    image = np.array(image)  # Convert to a NumPy array
+    image = cv2.resize(image, (224, 224))
     image = image.astype('float32') / 255.0
     return image
 
@@ -55,8 +54,8 @@ def main():
     uploaded_files = st.file_uploader("Choose multiple image files", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
     if st.button("Classify All"):
         for uploaded_file in uploaded_files:
-            # Read and preprocess the uploaded image with Pillow
-            image = Image.open(uploaded_file)
+            # Read and preprocess the uploaded image
+            image = cv2.imdecode(np.frombuffer(uploaded_file.read(), np.uint8), 1)
 
             # Predict the image
             top_classes, top_confidences = predict_image(model, image)
@@ -65,7 +64,7 @@ def main():
             col1, col2 = st.columns(2)
 
             # Display the image in the first column
-            resized_image = image.resize((224, 224))  # Resize for display
+            resized_image = cv2.resize(image, (224, 224))
             col1.image(resized_image, caption='Uploaded Image', use_column_width=False)
 
             # Display classification result
