@@ -6,6 +6,8 @@ import tensorflow as tf
 # Define the available models
 model_paths = {
     'Dense121': 'models/dense121.tflite',
+    'Vgg16': 'models/Vgg16.tflite',
+    'Vgg19': 'models/Vgg19.tflite',
 }
 
 def load_selected_model(model_path):
