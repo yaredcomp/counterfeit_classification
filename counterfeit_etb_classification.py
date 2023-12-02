@@ -48,7 +48,7 @@ def main():
     st.set_option('deprecation.showfileUploaderEncoding', False)
 
     # Navigation menu to select the model
-    selected_model = st.sidebar.selectbox("Select a model", list(model_paths.keys()))
+    selected_model = st.sidebar.selectbox("Select a model along with the Banknote Condition", list(model_paths.keys()))
 
     # Load the selected model
     model_path = model_paths[selected_model]
