@@ -5,9 +5,11 @@ import tensorflow as tf
 
 # Define the available models
 model_paths = {
-    'Dense121': 'models/dense121.tflite',
-    'Vgg16': 'models/Vgg16.tflite',
-    'Vgg19': 'models/Vgg19.tflite',
+    'Dense121 For New Banknotes': 'models/dense121.tflite',
+    'Dense121 For Worn-out Banknotes': 'models/Dense121_best_weights_mixed-III.tflite',
+    'Vgg19 For New Banknotes': 'models/Vgg19.tflite',
+    'Vgg19 For Worn-out Banknotes': 'models/Vgg19_mixed.tflite',
+
 }
 
 def load_selected_model(model_path):
