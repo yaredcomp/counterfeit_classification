@@ -45,6 +45,7 @@ def predict_image(model, image):
 # Streamlit app
 def main():
     st.title("Counterfeit and Genuine Ethiopian Banknote Classification by Yared D.")
+    st.caption('This is Experimental Model Not Ready for Real-world Application so Use it @ Your Own Risk:blue[colors] and emojis :sunglasses:')
     #st.set_option('deprecation.showfileUploaderEncoding', False)
 
     # Navigation menu to select the model
