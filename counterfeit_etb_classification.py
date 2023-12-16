@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import cv2
 import tensorflow as tf
-st.set_option('deprecation.showfileUploaderEncoding', False)
+#st.set_option('deprecation.showfileUploaderEncoding', False)
 # Define the available models
 model_paths = {
     'Dense121 For New Banknotes': 'models/dense121.tflite',
@@ -45,7 +45,7 @@ def predict_image(model, image):
 # Streamlit app
 def main():
     st.title("Counterfeit and Genuine Ethiopian Banknote Classification by Yared D.")
-    st.set_option('deprecation.showfileUploaderEncoding', False)
+    #st.set_option('deprecation.showfileUploaderEncoding', False)
 
     # Navigation menu to select the model
     selected_model = st.sidebar.selectbox("Select a model along with the Banknote Condition", list(model_paths.keys()))
